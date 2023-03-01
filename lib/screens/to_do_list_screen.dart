@@ -16,6 +16,7 @@ class _ToDoListScreenState extends State<ToDoListScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          // navigationToDetailsView(ToDoModel("", "", "", ""), "Add New Item");
           navigationToDetailsView(ToDoModel("", "", "", ""), "Add New Item");
         },
         child: Icon(Icons.add),
@@ -23,9 +24,13 @@ class _ToDoListScreenState extends State<ToDoListScreen> {
     );
   }
 
-  navigationToDetailsView(ToDoModel toDoModel, String appBarTitle) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+  navigationToDetailsView(ToDoModel toDoModel, String appBarTitle) async {
+    bool result =
+        await Navigator.push(context, MaterialPageRoute(builder: (context) {
       return PostToDoItem(toDoModel, appBarTitle);
     }));
+    if (result) {
+      //update the list
+    }
   }
 }

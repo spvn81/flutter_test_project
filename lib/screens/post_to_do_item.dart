@@ -61,11 +61,13 @@ class _PostToDoItemState extends State<PostToDoItem> {
           SizedBox(height: 20),
           Container(
             width: double.infinity,
-            // child: ElevatedButton(
-            //   style: ElevatedButton.styleFrom(primary: Colors.blue),
-            //   onPressed: validate(),
-            //   child: Text('Submit'),
-            // ),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(primary: Colors.blue),
+              onPressed: () {
+                validate();
+              },
+              child: Text('Submit'),
+            ),
           ),
         ]),
       ),
@@ -80,5 +82,6 @@ class _PostToDoItemState extends State<PostToDoItem> {
     DataBaseHelper dataBaseHelper = DataBaseHelper();
     dataBaseHelper.insert(toDoModel);
     Navigator.pop(context, true);
+    // print('Ok');
   }
 }
